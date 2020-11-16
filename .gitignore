@@ -32,7 +32,7 @@
 .pub/
 /build/
 .dart_tool/
-.pubspec.lock
+pubspec.lock
 
 # Web related
 lib/generated_plugin_registrant.dart
