@@ -8,6 +8,10 @@ class OperationModel {
 
 List<OperationModel> datas = operationsData.map((item) =>
     OperationModel(item['name'], item['selectedIcon'], item['unselectedIcon'])).toList();
+// List<OperationModel> datas2 = operationsData2.map((item) =>
+//     OperationModel(item['name'], item['selectedIcon'], item['unselectedIcon'])).toList();
+// List<OperationModel> datas3 = operationsData3.map((item) =>
+//     OperationModel(item['name'], item['selectedIcon'], item['unselectedIcon'])).toList();
 
 var operationsData = [
   {
@@ -16,11 +20,13 @@ var operationsData = [
     "unselectedIcon": "assets/svg/money_transfer_blue.svg",
 
   },
+
   {
     "name": "CBDC\nExchange",
     "selectedIcon": "assets/svg/exchange_white.svg",
     "unselectedIcon": "assets/svg/exchange.svg"
   },
+
   {
     "name": "Insight\nTracking",
     "selectedIcon": "assets/svg/insight_tracking_white.svg",

@@ -233,34 +233,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-             Container (
-               height: 123,
-               child: ListView.builder(
-                   itemCount: datas.length,
-                   padding: EdgeInsets.only(left:16),
-                   scrollDirection: Axis.horizontal,
-                   itemBuilder: (context, index){
-                     return GestureDetector(
-                       onTap: () {
-                         Navigator.push(
-                           context,
-                           MaterialPageRoute(builder: (context) => MonthlyExpenseView()),
-                         );
-                         setState(() {
-                           current = index;
-                         });
-                       },
-                       child: OperationCard(
-                           operation: datas[index].name,
-                           selectedIcon: datas[index].selectedIcon,
-                           unselectedIcon: datas[index].unselectedIcon,
-                           isSelected: current == index,
-                           context: this),
-                     );
-                   }),
+              Container (
+                height: 123,
+                child: ListView.builder(
+                    itemCount: datas.length,
+                    padding: EdgeInsets.only(left:16),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index){
+                      return GestureDetector(
+
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MonthlyExpenseView()),
+                          );
+                          setState(() {
+                            current = index;
+                          });
+                        },
+                        child: OperationCard(
+                            operation: datas[index].name,
+                            selectedIcon: datas[index].selectedIcon,
+                            unselectedIcon: datas[index].unselectedIcon,
+                            isSelected: current == index,
+                            context: this),
+                      );
+                    }),
 
 
-             ),
+              ),
               // Transaction Section
               Padding(
                 padding:
