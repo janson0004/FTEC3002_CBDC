@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:cbdc_app/constants/color_constant.dart';
 import 'package:cbdc_app/models/card_model.dart';
 import 'package:cbdc_app/models/transaction_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +12,10 @@ import 'package:cbdc_app/screens/auth/auth.dart';
 import 'package:lit_firebase_auth/lit_firebase_auth.dart';
 import 'package:cbdc_app/models/card2_model.dart';
 
+import 'dashboard.dart';
+import 'money_transfer_page.dart';
 import 'monthly_expense_view.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
   static MaterialPageRoute get route => MaterialPageRoute(
@@ -21,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-
+  @override
   int current =0;
   // Handle Indicator
   List<T> map<T>(List list, Function handler) {
@@ -30,6 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
       result.add(handler(i, list[i]));
     }
     return result;
+  }
+  void checkOperation() {
+
   }
   @override
   Widget build(BuildContext context) {
@@ -139,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Positioned(
                           left:29,
                           top:90,
-                          child: Text(cards[index].CBDCBalance + ' HKD in CASH', style: GoogleFonts.inter(
+                          child: Text(cards[index].cashBalance + ' HKD in CASH', style: GoogleFonts.inter(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               color: kWhiteColor
@@ -243,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       return GestureDetector(
 
                         onTap: () {
+                          if (datas[index].name == "Insight\nTracking") {
                           Navigator.push(
                             context,
                             MaterialPageRoute(builder: (context) => MonthlyExpenseView()),
@@ -250,7 +260,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           setState(() {
                             current = index;
                           });
-                        },
+                        } else if (datas[index].name == "CBDC\nExchange") {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => DashboardPage(currencyVal: 0.0,
+                                  convertedCurrency: 0.0,
+                                  currencyone: 'CASH',
+                                  currencytwo: 'CBDC',
+                                  isWhite: false)),
+                            );
+                            setState(() {
+                              current = index;
+                            });
+                          } else {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MoneyTransferPage()),
+                            );
+                            setState(() {
+                              current = index;
+                            });
+                          }
+                          },
                         child: OperationCard(
                             operation: datas[index].name,
                             selectedIcon: datas[index].selectedIcon,

@@ -11,7 +11,7 @@ class MoneyTransferPage extends StatefulWidget {
   _MoneyTransferPageState createState() => _MoneyTransferPageState();
 }
 
-class _MoneyTransferPageState extends State<MoneyTransferPage> {
+class _MoneyTransferPageState extends State <MoneyTransferPage> {
 
   Align _buttonWidget() {
     return Align(
@@ -41,10 +41,10 @@ class _MoneyTransferPageState extends State<MoneyTransferPage> {
           children: <Widget>[
             Transform.rotate(
               angle: 70,
-              child: Icon(
-                Icons.swap_calls,
-                color: Colors.white,
-              ),
+              // child: Icon(
+              //   Icons.swap_calls,
+              //   color: Colors.white,
+              // ),
             ),
             SizedBox(width: 10),
             TitleText(

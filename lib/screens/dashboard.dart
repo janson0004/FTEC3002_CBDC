@@ -2,6 +2,8 @@ import 'package:cbdc_app/converter/currency_list.dart';
 import 'package:cbdc_app/converter/currencyservice.dart';
 import 'package:cbdc_app/converter/red_input.dart';
 import 'package:cbdc_app/converter/white_input.dart';
+import 'package:cbdc_app/models/light_color.dart';
+import 'package:cbdc_app/screens/transaction/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -138,6 +140,29 @@ class _DashboardPageState extends State<DashboardPage> {
                     ),
                   ],
                 )),
+          ),
+          Container (
+              margin: EdgeInsets.only(top: 680, left: 118),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              decoration: BoxDecoration(
+                  color: Color(0xFFEC5759),
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              child: Wrap(
+                children: <Widget>[
+                  Transform.rotate(
+                    angle: 70,
+                    child: Icon(
+                      Icons.swap_calls,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  TitleText(
+                    text: "Convert",
+                    color: Colors.white,
+                  ),
+                ],
+              )
           )
         ],
       ),
