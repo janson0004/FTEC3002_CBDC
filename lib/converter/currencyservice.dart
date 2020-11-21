@@ -1,7 +1,8 @@
 import 'package:cbdc_app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class CurrencyService {
   getCurrencyString(currency) {
@@ -32,6 +33,10 @@ class CurrencyService {
                   isWhite: true,
                 )));
       }
-    }
+    }Future CBDCExchange() async{
+      String url = "https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/cbdcexchange?Name=Chan+Siu+Man&amount=${amount}&fromCurrency=${fromCurrency}";
+      await http.post(url);
+  }
+    CBDCExchange();
   }
 }

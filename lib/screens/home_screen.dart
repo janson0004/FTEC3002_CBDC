@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future userFuture;
 
   Future getData() async {
-    http.Response response = await http.get(Uri.encodeFull("https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/readaccountbalance?Name=ChanSiuMan"),
+    http.Response response = await http.get(("https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/readaccountbalance?Name=Chan Siu Man"),
         headers:{
           "Accept":"application/json"
         });
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: kBlackColor
                           ),),
 
-                          Text('Janson Cheung', style:GoogleFonts.inter(
+                          Text('Chan Siu Man', style:GoogleFonts.inter(
                               fontSize: 30,
                               fontWeight: FontWeight.w700,
                               color: kBlackColor),

@@ -180,7 +180,7 @@ class _InputRedPageState extends State<InputRedPage> {
         InkWell(
           onTap: () {
             CurrencyService().convertCurrency(
-                widget.origCurrency, widget.convCurrency, currInput, context);
+                "Cash", widget.convCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,
