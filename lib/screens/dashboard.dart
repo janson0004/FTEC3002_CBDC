@@ -8,6 +8,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'home_screen.dart';
+
+var test;
 
 class DashboardPage extends StatefulWidget {
   final currencyVal;
@@ -28,6 +31,7 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -94,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               style: BorderStyle.solid,
                               width: 5.0)),
                       child: Center(
-                        child: widget.isWhite
+                        child: test == false
                             ? Icon(
                           Icons.arrow_upward,
                           size: 60.0,
@@ -139,29 +143,54 @@ class _DashboardPageState extends State<DashboardPage> {
                           fontSize: 22.0,
                           fontFamily: 'Quicksand'),
                     ),
+
                   ],
                 )),
-          ),
-          Container (
-              margin: EdgeInsets.only(top: 680, left: 118),
-              padding: EdgeInsets.symmetric(horizontal: 13, vertical: 5),
-              decoration: BoxDecoration(
-                  color: Color(0xFFEC5759),
-                  borderRadius: BorderRadius.all(Radius.circular(15))),
-              child: FlatButton.icon(
-                icon: Icon(Icons.swap_calls,
-                    color: Colors.white),
-                onPressed: () {
-                  print('clicked in converter');
-                },
-                label: Text('Convert',
-                    style:GoogleFonts.inter(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white)),
-                color: Color(0xFFEC5759),
-              )
+          ),   Container (
+                  margin: EdgeInsets.only(left: 16, right:16, top: 16),
+                  child: Row (
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget> [
+                  GestureDetector(
+                  onTap: (){
+                  print('Drawer Taped!');
+                  },
+                  child: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+
+                  },
+                  icon: Icon (Icons.arrow_back,size: 27),
+                  color: Colors.white
+                  //child: SvgPicture.asset('assets/svg/exit_icon.svg'),),
+                  ),)
+
+                  ],
+                  ),
           )
+    // Container (
+          //     margin: EdgeInsets.only(top: 680, left: 118),
+          //     padding: EdgeInsets.symmetric(horizontal: 13, vertical: 5),
+          //     decoration: BoxDecoration(
+          //         color: Color(0xFFEC5759),
+          //         borderRadius: BorderRadius.all(Radius.circular(15))),
+          //     child: FlatButton.icon(
+          //       icon: Icon(Icons.swap_calls,
+          //           color: Colors.white),
+          //       onPressed: () {
+          //         print('clicked in converter');
+          //       },
+          //       label: Text('Convert',
+          //           style:GoogleFonts.inter(
+          //               fontSize: 18,
+          //               fontWeight: FontWeight.bold,
+          //               color: Colors.white)),
+          //       color: Color(0xFFEC5759),
+          //     )
+          // )
         ],
       ),
     );

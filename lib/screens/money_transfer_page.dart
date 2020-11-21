@@ -254,7 +254,7 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                   top: 40,
                   child: Row(
                     children: <Widget>[
-                      BackButton(color: Colors.white,),
+                      BackButton(color: Colors.white),
                       SizedBox(width: 20),
                       Text('Send', style:GoogleFonts.inter(
                           fontSize: 38,
