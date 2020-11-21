@@ -18,7 +18,7 @@ class CurrencyService {
             builder: (context) =>
                 DashboardPage(
                     currencyVal: amount,
-                    convertedCurrency: (amount).roundToDouble(),
+                    convertedCurrency: (amount).toStringAsFixed(3),
                     currencyone: fromCurrency,
                     currencytwo: toCurrency,
                     isWhite: false)));

@@ -13,11 +13,11 @@ import 'home_screen.dart';
 var test;
 
 class DashboardPage extends StatefulWidget {
-  final currencyVal;
-  final convertedCurrency;
-  final currencyone;
-  final currencytwo;
-  final isWhite;
+  var currencyVal;
+  var convertedCurrency;
+  var currencyone;  // cash
+  var currencytwo;  // cbdc
+  var isWhite;
 
   DashboardPage(
       {this.currencyVal,
@@ -68,8 +68,8 @@ class _DashboardPageState extends State<DashboardPage> {
                         onTap: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(
                               builder: (context) => InputRedPage(
-                                  origCurrency: widget.currencyone,
-                                  convCurrency: widget.currencytwo)));
+                                  origCurrency: "Cash",
+                                  convCurrency: "CBDC")));
                         },
                         child: Text(
                           widget.currencyVal.toString(),
@@ -98,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               style: BorderStyle.solid,
                               width: 5.0)),
                       child: Center(
-                        child: test == false
+                        child: widget.isWhite
                             ? Icon(
                           Icons.arrow_upward,
                           size: 60.0,

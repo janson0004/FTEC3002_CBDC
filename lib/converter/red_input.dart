@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'currencyservice.dart';
 import 'package:cbdc_app/screens/dashboard.dart' as dashboard;
 class InputRedPage extends StatefulWidget {
-  final origCurrency;
-  final convCurrency;
+  var origCurrency;
+  var convCurrency;
 
   InputRedPage({this.origCurrency, this.convCurrency});
 
@@ -14,22 +14,23 @@ class InputRedPage extends StatefulWidget {
 
 class _InputRedPageState extends State<InputRedPage> {
   var currInput = 0;
-  createAlertDialog (BuildContext context) {
-    return showDialog (context: context, builder: (context){
-      return AlertDialog(
-        title: Text("Sure to Convert \$$currInput to CBDC?"),
-        actions: [
-          MaterialButton(
-            elevation: 5.0,
-            child: Text('Confirm'),
-            onPressed:() {dashboard.test = true;
-            CurrencyService().convertCurrency(
-                widget.origCurrency, widget.convCurrency, currInput, context);},
-          )
-        ],
-      );
-    });
-  }
+  // createAlertDialog (BuildContext context) {
+  //   CurrencyService().convertCurrency(
+  //       "CASH", widget.convCurrency, currInput, context);
+  //   return showDialog (context: context, builder: (context){
+  //     return AlertDialog(
+  //       title: Text("Sure to Convert \$$currInput to CBDC?"),
+  //       actions: [
+  //         MaterialButton(
+  //           elevation: 5.0,
+  //           child: Text('Confirm'),
+  //           onPressed:() {dashboard.test = true;
+  //           },
+  //         )
+  //       ],
+  //     );
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +200,8 @@ class _InputRedPageState extends State<InputRedPage> {
         ),
         InkWell(
           onTap: () {
-            createAlertDialog(context);
+            CurrencyService().convertCurrency(
+                "Cash", widget.convCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,
