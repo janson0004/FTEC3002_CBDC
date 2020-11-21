@@ -20,7 +20,6 @@ class _PiechartPageState extends State<PiechartPage> {
   List<charts.Series<Task, String>> _seriesPieData2;
   _generateData() {
 
-
     var Savingpiedata = [
       new Task('CBDC', double.parse(home.userCBDC),  Color.fromRGBO(46, 198, 255, 1),),
       new Task('Cash', double.parse(home.userCash), Color.fromRGBO(123, 201, 82, 1)),

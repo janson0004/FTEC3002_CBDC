@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future userFuture;
 
-  Future getData() async {
+  Future _getData() async {
     http.Response response = await http.get(("https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/readaccountbalance?Name=Chan Siu Man"),
         headers:{
           "Accept":"application/json"
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    userFuture = getData();
+    userFuture = _getData();
   }
 
 

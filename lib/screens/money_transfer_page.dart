@@ -1,9 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:cbdc_app/models/light_color.dart';
 import 'package:cbdc_app/screens/transaction/title_text.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+Future _transfer(var PayerName, var PayeeName, var type, var amount) async{
+  String url = "https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/p2p?payerName=Chan+Siu+Man&payeeName=${PayeeName}&amount=${amount}&type=${type}";
+  await http.post(url);
+}
 class MoneyTransferPage extends StatefulWidget {
   MoneyTransferPage({Key key}) : super(key: key);
 
@@ -15,13 +19,13 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
 
   var _Payee;
   var _CBDCAmount;
-  var _CsahAmount;
+  var _CashAmount;
   var _PayeeID;
 
-  final PayeeCon = new TextEditingController();
-  final CBDCAmountCon = new TextEditingController();
-  final CashAmountCon = new TextEditingController();
-  final PayeeIDCon = new TextEditingController();
+  var PayeeCon = new TextEditingController();
+  var CBDCAmountCon = new TextEditingController();
+  var CashAmountCon = new TextEditingController();
+  var PayeeIDCon = new TextEditingController();
   Align _buttonWidget() {
     return Align(
         alignment: Alignment.bottomCenter,
@@ -48,13 +52,19 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: FlatButton(
         onPressed: () {
-          setState(() {
             _Payee = PayeeCon.text;
             _PayeeID = PayeeIDCon.text;
             _CBDCAmount = CBDCAmountCon.text;
-            _CsahAmount = CashAmountCon.text;
-          });
-          print('Payee : $_Payee, PayeeID: $_PayeeID, CBDCAmount: $_CBDCAmount, CashAmount: $_CsahAmount');
+            _CashAmount = CashAmountCon.text;
+          print(_Payee +"a"+ _CBDCAmount+"b" + _CashAmount);
+
+          if(!_CashAmount.isEmpty){
+            _transfer("Chan Siu Man", _Payee, "Cash", _CashAmount);
+          }
+          if(!_CBDCAmount.isEmpty){
+            _transfer("Chan Siu Man", _Payee, "CBDC", _CBDCAmount);
+          }
+
         },
         child: Text(
             'Transfer',
@@ -127,16 +137,6 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                       flex: 1,
                       child: SizedBox(),
                     ),
-                    // Container(
-                    //   height: 55,
-                    //   width: 60,
-                    //   decoration: BoxDecoration(
-                    //       image: DecorationImage(
-                    //           image: AssetImage('assets/images/user_image.png'),
-                    //           fit: BoxFit.cover),
-                    //       borderRadius: BorderRadius.all(Radius.circular(15))),
-                    //
-                    // ),
 
                     SizedBox(height : 20),
                     TextField(decoration: InputDecoration (
