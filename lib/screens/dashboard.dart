@@ -6,6 +6,7 @@ import 'package:cbdc_app/models/light_color.dart';
 import 'package:cbdc_app/screens/transaction/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class DashboardPage extends StatefulWidget {
@@ -143,25 +144,22 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
           Container (
               margin: EdgeInsets.only(top: 680, left: 118),
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+              padding: EdgeInsets.symmetric(horizontal: 13, vertical: 5),
               decoration: BoxDecoration(
                   color: Color(0xFFEC5759),
                   borderRadius: BorderRadius.all(Radius.circular(15))),
-              child: Wrap(
-                children: <Widget>[
-                  Transform.rotate(
-                    angle: 70,
-                    child: Icon(
-                      Icons.swap_calls,
-                      color: Colors.white,
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  TitleText(
-                    text: "Convert",
-                    color: Colors.white,
-                  ),
-                ],
+              child: FlatButton.icon(
+                icon: Icon(Icons.swap_calls,
+                    color: Colors.white),
+                onPressed: () {
+                  print('clicked in converter');
+                },
+                label: Text('Convert',
+                    style:GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+                color: Color(0xFFEC5759),
               )
           )
         ],

@@ -13,6 +13,15 @@ class MoneyTransferPage extends StatefulWidget {
 
 class _MoneyTransferPageState extends State <MoneyTransferPage> {
 
+  var _Payee;
+  var _CBDCAmount;
+  var _CsahAmount;
+  var _PayeeID;
+
+  final PayeeCon = new TextEditingController();
+  final CBDCAmountCon = new TextEditingController();
+  final CashAmountCon = new TextEditingController();
+  final PayeeIDCon = new TextEditingController();
   Align _buttonWidget() {
     return Align(
         alignment: Alignment.bottomCenter,
@@ -32,27 +41,30 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
 
   Widget _transferButton() {
     return Container(
-        margin: EdgeInsets.only(bottom: 20),
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        decoration: BoxDecoration(
-            color: LightColor.navyBlue2,
-            borderRadius: BorderRadius.all(Radius.circular(15))),
-        child: Wrap(
-          children: <Widget>[
-            Transform.rotate(
-              angle: 70,
-              // child: Icon(
-              //   Icons.swap_calls,
-              //   color: Colors.white,
-              // ),
-            ),
-            SizedBox(width: 10),
-            TitleText(
-              text: "Transfer",
-              color: Colors.white,
-            ),
-          ],
-        ));
+      margin: EdgeInsets.only(bottom: 20),
+      padding: EdgeInsets.symmetric(horizontal: 13, vertical: 5),
+      decoration: BoxDecoration(
+          color: LightColor.navyBlue2,
+          borderRadius: BorderRadius.all(Radius.circular(15))),
+      child: FlatButton(
+        onPressed: () {
+          setState(() {
+            _Payee = PayeeCon.text;
+            _PayeeID = PayeeIDCon.text;
+            _CBDCAmount = CBDCAmountCon.text;
+            _CsahAmount = CashAmountCon.text;
+          });
+          print('Payee : $_Payee, PayeeID: $_PayeeID, CBDCAmount: $_CBDCAmount, CashAmount: $_CsahAmount');
+        },
+        child: Text(
+            'Transfer',
+            style:GoogleFonts.inter(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.white)),
+        color: LightColor.navyBlue2,
+      ),
+    );
   }
 
   Widget _icon(IconData icon, bool isBackground) {
@@ -136,6 +148,7 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                       ),
                       hintText: 'Payee\'s Name',
                     ),
+                      controller: PayeeCon,
                     ),
                     SizedBox(height : 20),
 
@@ -148,6 +161,7 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                       ),
                       hintText: 'Payee\'s ID',
                     ),
+                      controller: PayeeIDCon,
                     ),
 
 
@@ -163,13 +177,14 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                 hintText: 'Amount in CBDC',
                 hintStyle: TextStyle (color: Colors.white),
 
-              ),
+                ),
+                controller: CBDCAmountCon,
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.digitsOnly
                 ],
               ),
-                    // Expanded(
+                    // Expanded(mountCon;
                     //   flex: 2,
                     //   child: SizedBox(),
                     // ),
@@ -181,10 +196,12 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                       border: OutlineInputBorder (
                         borderRadius: BorderRadius.circular (10),
                       ),
+
                       hintText: 'Amount in Cash',
                       hintStyle: TextStyle (color: Colors.white),
 
                     ),
+                      controller: CashAmountCon,
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
