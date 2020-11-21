@@ -35,7 +35,7 @@ List<CardModel> cards = cardData.map(
 
 var cardData = [
   {
-    "user": "Janson Cheung",
+    "user": "Chan Siu Man",
     "cashBalance": "10000",
     "CBDCBalance": "10000",
     "cardExpired": "03-01-2023",

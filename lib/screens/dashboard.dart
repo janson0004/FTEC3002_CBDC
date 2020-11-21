@@ -119,8 +119,8 @@ class _DashboardPageState extends State<DashboardPage> {
                       onTap: () {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => InputWhitePage(
-                                origCurrency: widget.currencyone,
-                                convCurrency: widget.currencytwo)));
+                                origCurrency: widget.currencytwo,
+                                convCurrency: widget.currencyone)));
                       },
                       child: Text(
                         widget.convertedCurrency.toString(),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'currencyservice.dart';
 
 class InputWhitePage extends StatefulWidget {
-  final origCurrency;
-  final convCurrency;
+  var origCurrency;
+  var convCurrency;
 
   InputWhitePage({this.origCurrency, this.convCurrency});
 
@@ -175,7 +175,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
         InkWell(
           onTap: () {
             CurrencyService().convertCurrency(
-                widget.convCurrency, widget.origCurrency, currInput, context);
+                "CBDC", widget.origCurrency, currInput, context);
           },
           child: Container(
             height: 80.0,
