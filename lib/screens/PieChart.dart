@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'home_screen.dart' as home;
+import 'dart:core';
 
 class PiechartPage extends StatefulWidget {
   final Widget child;
@@ -20,8 +22,8 @@ class _PiechartPageState extends State<PiechartPage> {
 
 
     var Savingpiedata = [
-      new Task('CBDC', 35.8,  Color.fromRGBO(46, 198, 255, 1),),
-      new Task('Cash', 8.3, Color.fromRGBO(123, 201, 82, 1)),
+      new Task('CBDC', double.parse(home.userCBDC),  Color.fromRGBO(46, 198, 255, 1),),
+      new Task('Cash', double.parse(home.userCash), Color.fromRGBO(123, 201, 82, 1)),
     ];
     var Transactionpiedata = [
       new Task('CBDC', 10000,  Color.fromRGBO(46, 198, 255, 1),),

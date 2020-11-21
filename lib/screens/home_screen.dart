@@ -14,6 +14,8 @@ import 'PieChart.dart';
 import 'dashboard.dart';
 import 'money_transfer_page.dart';
 import 'monthly_expense_view.dart';
+var userCash;
+var userCBDC;
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
   static MaterialPageRoute get route => MaterialPageRoute(
@@ -26,8 +28,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   Map data;
-  var userCash;
-  var userCBDC;
+
   Future userFuture;
 
   Future getData() async {
