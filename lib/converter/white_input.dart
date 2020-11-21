@@ -1,3 +1,5 @@
+import 'package:cbdc_app/screens/dashboard.dart';
+import 'package:cbdc_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'currencyservice.dart';
@@ -15,23 +17,31 @@ class InputWhitePage extends StatefulWidget {
 
 class _InputWhitePageState extends State<InputWhitePage> {
   var currInput = 0;
-  // createAlertDialog (BuildContext context) {
-  //   return showDialog (context: context, builder: (context){
-  //     return AlertDialog(
-  //       title: Text("Sure to convert \$$currInput CBDC to Cash?"),
-  //       actions: [
-  //         MaterialButton(
-  //           elevation: 5.0,
-  //           child: Text('Confirm'),
-  //           onPressed:() {
-  //             dashboard.test = false;
-  //             CurrencyService().convertCurrency(
-  //               "CBDC", widget.origCurrency, currInput, context);},
-  //         )
-  //       ],
-  //     );
-  //   });
-  // }
+  createAlertDialog (BuildContext context) {
+    return showDialog (context: context, builder: (context){
+      return AlertDialog(
+        title: Text("Sure to convert \$$currInput CBDC to Cash?"),
+        actions: [
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Confirm'),
+            onPressed:() {
+              CurrencyService().convertCurrency(
+                  "CBDC", widget.origCurrency, currInput, context);
+              Navigator.push(
+                context,
+                  MaterialPageRoute(builder: (context) => DashboardPage(currencyVal: 0.0,
+                      convertedCurrency: 0.0,
+                      currencyone: 'CASH',
+                      currencytwo: 'CBDC',
+                      isWhite: false))
+              );
+            }
+          )
+        ],
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -191,8 +201,8 @@ class _InputWhitePageState extends State<InputWhitePage> {
         ),
         InkWell(
           onTap: () {
-            CurrencyService().convertCurrency(
-                "CBDC",widget.origCurrency, currInput, context);
+            createAlertDialog(context);
+
           },
           child: Container(
             height: 80.0,

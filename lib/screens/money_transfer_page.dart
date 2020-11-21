@@ -4,6 +4,8 @@ import 'package:cbdc_app/screens/transaction/title_text.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+
+import 'home_screen.dart';
 Future _transfer(var PayerName, var PayeeName, var type, var amount) async{
   String url = "https://zb509xftc2.execute-api.us-east-1.amazonaws.com/test/p2p?payerName=Chan+Siu+Man&payeeName=${PayeeName}&amount=${amount}&type=${type}";
   await http.post(url);
@@ -16,6 +18,40 @@ class MoneyTransferPage extends StatefulWidget {
 }
 
 class _MoneyTransferPageState extends State <MoneyTransferPage> {
+  createAlertDialog (BuildContext context) {
+
+    return showDialog (context: context, builder: (context){
+      _Payee = PayeeCon.text;
+      _PayeeID = PayeeIDCon.text;
+      _CBDCAmount = CBDCAmountCon.text;
+      _CashAmount = CashAmountCon.text;
+      return AlertDialog(
+        title: Text('Sure to transfer '+ _Payee + ' \$'+ _CashAmount +' of Cash and \$'+ _CBDCAmount + ' of CBDC?'),
+        actions: [
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Confirm'),
+            onPressed:() {
+
+              print(_Payee +"a"+ _CBDCAmount+"b" + _CashAmount);
+
+              if(!_CashAmount.isEmpty){
+                _transfer("Chan Siu Man", _Payee, "Cash", _CashAmount);
+              }
+              if(!_CBDCAmount.isEmpty){
+                _transfer("Chan Siu Man", _Payee, "CBDC", _CBDCAmount);
+              }
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MoneyTransferPage()),
+              );
+            },
+
+          )
+        ],
+      );
+    });
+  }
 
   var _Payee;
   var _CBDCAmount;
@@ -52,19 +88,19 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
           borderRadius: BorderRadius.all(Radius.circular(15))),
       child: FlatButton(
         onPressed: () {
-            _Payee = PayeeCon.text;
-            _PayeeID = PayeeIDCon.text;
-            _CBDCAmount = CBDCAmountCon.text;
-            _CashAmount = CashAmountCon.text;
-          print(_Payee +"a"+ _CBDCAmount+"b" + _CashAmount);
-
-          if(!_CashAmount.isEmpty){
-            _transfer("Chan Siu Man", _Payee, "Cash", _CashAmount);
-          }
-          if(!_CBDCAmount.isEmpty){
-            _transfer("Chan Siu Man", _Payee, "CBDC", _CBDCAmount);
-          }
-
+          //   _Payee = PayeeCon.text;
+          //   _PayeeID = PayeeIDCon.text;
+          //   _CBDCAmount = CBDCAmountCon.text;
+          //   _CashAmount = CashAmountCon.text;
+          // print(_Payee +"a"+ _CBDCAmount+"b" + _CashAmount);
+          //
+          // if(!_CashAmount.isEmpty){
+          //   _transfer("Chan Siu Man", _Payee, "Cash", _CashAmount);
+          // }
+          // if(!_CBDCAmount.isEmpty){
+          //   _transfer("Chan Siu Man", _Payee, "CBDC", _CBDCAmount);
+          // }
+          createAlertDialog(context);
         },
         child: Text(
             'Transfer',
@@ -253,15 +289,25 @@ class _MoneyTransferPageState extends State <MoneyTransferPage> {
                   left: 0,
                   top: 40,
                   child: Row(
-                    children: <Widget>[
-                      BackButton(color: Colors.white),
-                      SizedBox(width: 20),
-                      Text('Send', style:GoogleFonts.inter(
-                          fontSize: 38,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                      )
-                    ],
+                      children: <Widget> [
+                        GestureDetector(
+                          onTap: (){
+                            print('Drawer Taped!');
+                          },
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                                );
+
+                              },
+                              icon: Icon (Icons.arrow_back,size: 27),
+                              color: Colors.white
+                            //child: SvgPicture.asset('assets/svg/exit_icon.svg'),),
+                          ),)
+
+                      ],
                   )),
               _buttonWidget(),
             ],

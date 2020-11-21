@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'currencyservice.dart';
-import 'package:cbdc_app/screens/dashboard.dart' as dashboard;
+import 'package:cbdc_app/screens/dashboard.dart';
+import 'package:cbdc_app/screens/home_screen.dart';
 class InputRedPage extends StatefulWidget {
   var origCurrency;
   var convCurrency;
@@ -14,23 +15,33 @@ class InputRedPage extends StatefulWidget {
 
 class _InputRedPageState extends State<InputRedPage> {
   var currInput = 0;
-  // createAlertDialog (BuildContext context) {
-  //   CurrencyService().convertCurrency(
-  //       "CASH", widget.convCurrency, currInput, context);
-  //   return showDialog (context: context, builder: (context){
-  //     return AlertDialog(
-  //       title: Text("Sure to Convert \$$currInput to CBDC?"),
-  //       actions: [
-  //         MaterialButton(
-  //           elevation: 5.0,
-  //           child: Text('Confirm'),
-  //           onPressed:() {dashboard.test = true;
-  //           },
-  //         )
-  //       ],
-  //     );
-  //   });
-  // }
+  createAlertDialog (BuildContext context) {
+
+    return showDialog (context: context, builder: (context){
+      return AlertDialog(
+        title: Text("Sure to Convert \$$currInput to CBDC?"),
+        actions: [
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Confirm'),
+            onPressed:() {
+              CurrencyService().convertCurrency(
+                  "Cash", widget.convCurrency, currInput, context);
+              Navigator.push(
+                context,
+                  MaterialPageRoute(builder: (context) => DashboardPage(currencyVal: 0.0,
+                      convertedCurrency: 0.0,
+                      currencyone: 'CASH',
+                      currencytwo: 'CBDC',
+                      isWhite: false))
+              );
+
+            },
+          )
+        ],
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -200,8 +211,7 @@ class _InputRedPageState extends State<InputRedPage> {
         ),
         InkWell(
           onTap: () {
-            CurrencyService().convertCurrency(
-                "Cash", widget.convCurrency, currInput, context);
+            createAlertDialog (context);
           },
           child: Container(
             height: 80.0,
@@ -231,4 +241,10 @@ class _InputRedPageState extends State<InputRedPage> {
       });
     }
   }
+}
+
+void _navigateToHomeScreen(BuildContext context) {
+  WidgetsBinding.instance.addPostFrameCallback(
+        (_) => Navigator.of(context).pushReplacement(HomeScreen.route),
+  );
 }
