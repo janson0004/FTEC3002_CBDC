@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'currencyservice.dart';
+import 'package:cbdc_app/screens/dashboard.dart' as dashboard;
 
 class InputWhitePage extends StatefulWidget {
-  var origCurrency;
-  var convCurrency;
+  final origCurrency;
+  final convCurrency;
 
   InputWhitePage({this.origCurrency, this.convCurrency});
 
@@ -14,7 +15,23 @@ class InputWhitePage extends StatefulWidget {
 
 class _InputWhitePageState extends State<InputWhitePage> {
   var currInput = 0;
-
+  createAlertDialog (BuildContext context) {
+    return showDialog (context: context, builder: (context){
+      return AlertDialog(
+        title: Text("Sure to convert \$$currInput CBDC to Cash?"),
+        actions: [
+          MaterialButton(
+            elevation: 5.0,
+            child: Text('Confirm'),
+            onPressed:() {
+              dashboard.test = false;
+              CurrencyService().convertCurrency(
+                widget.convCurrency, widget.origCurrency, currInput, context);},
+          )
+        ],
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,8 +191,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
         ),
         InkWell(
           onTap: () {
-            CurrencyService().convertCurrency(
-                "CBDC", widget.origCurrency, currInput, context);
+            createAlertDialog(context);
           },
           child: Container(
             height: 80.0,
