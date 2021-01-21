@@ -1,9 +1,9 @@
 # Victoria
 
-Victoria, an mobile application which simulate central bank digital currency, which allows conversion between HKD and CBDC, peer-to-peer payment and account information checking.
+Victoria, an mobile application which mimick central bank digital currency, which allows conversion between HKD and CBDC, peer-to-peer payment and account information checking.
 
 ## How we get inspired
-To improvise the evolution of currency, from coin to note, and now to digital currency, we are proposing for the HKMA to adopt CBDC implementation to promote cashless society. As compared to Project Inthathon-LionRock with regards to increase Hong Kong’s financial stability, we are putting strong emphasis on cash to CBDC migration. Therefore, we create an Minimal Viable Product (MVP) mimicking CBDC wallet, that was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEiwA6Cbm_7PgB0T5hkRn1noadXlxn3OH5lmWib2qB6nnorXO_bZXZ2KDk2zEvRoCZ1oQAvD_BwE&gclsrc=aw.ds">Flutter</a>
+To improvise the evolution of currency, from coin to note, and now to digital currency, we are proposing for the HKMA to adopt CBDC implementation to promote cashless society. As compared to Project Inthathon-LionRock with regards to increase Hong Kong’s financial stability, we are putting strong emphasis on cash to CBDC migration. Therefore, we create an Minimal Viable Product (MVP) mimicking CBDC wallet, that was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEiwA6Cbm_7PgB0T5hkRn1noadXlxn3OH5lmWib2qB6nnorXO_bZXZ2KDk2zEvRoCZ1oQAvD_BwE&gclsrc=aw.ds">Flutter</a>. 
 
 ## Features
 <ul>
@@ -12,14 +12,5 @@ To improvise the evolution of currency, from coin to note, and now to digital cu
     <li> Peer-to-peer payment and account information checking
 </ul>
 
-This project is a starting point for a Flutter application.
+## App System Architecture
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# FTEC3002_CBDC
