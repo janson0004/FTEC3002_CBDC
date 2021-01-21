@@ -24,6 +24,25 @@ To improvise the evolution of currency, from coin to note, and now to digital cu
 ## UI/UX Design
 Since our team is short in UIUX designing, we conducted preliminary research on UIUX design considerations and justifications, also referenced to multiple sources for inspirations. We were also puzzled by the padding formatting and alignment in Flutter, since it was designed to cater cross-platform development in different aspect ratio and resolution dimension, we also studied use cases online to troubleshoot inconsistency of interactive elements.
 
+## AWS Lambda
+AWS Lambda is the easiest tool on to implement Node.JS based HTTP API. At this experimentation stage, HTTP and RESTful APIs do not have noticeable difference. Having considered HTTP is easier to be tested, especially with GET method on web browser, we have decided to pilot on HTTP API. Each Node.JS function would handle different HTTP request. In all circumstances, response in JSON format would be returned for easier processing.
+Here is an example of getting user's account balance from DynamoDB.
+`try {
+    const data = await documentClient.get(params).promise();
+    responseBody = JSON.stringify(data.Item);
+    statusCode = 200;
+  } catch (err) {
+    responseBody = `Unable to get user data`;
+    statusCode = 403;
+  }
+
+  const response = {
+    statusCode: statusCode,
+    headers: {
+      "myHeader": "test"
+    },
+    body: responseBody
+  };`
 ## Authentication
 As time was a limiting constraint, we did not develop a secure authentication method and it is not our main focus of the project. Therefore, we choose Firebase by Google as the authentication and registration method for our mobile app, which can securely save user data in the cloud and provide the same personalized experience across all of the user's devices. It supports authentication using passwords, and popular federated identity providers like Google, Apple, Microsoft, and more. Fingerprint authentication is also provided, which highly enhances our mobile app’s security.
 
