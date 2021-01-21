@@ -5,6 +5,7 @@ This project aimed at developing an mobile application that mimicking Central Ba
 This project was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEiwA6Cbm_7PgB0T5hkRn1noadXlxn3OH5lmWib2qB6nnorXO_bZXZ2KDk2zEvRoCZ1oQAvD_BwE&gclsrc=aw.ds">Flutter</a>, which is an open-source UI software development kit. Our idea is to provide a electronic wallet for users to access their CBDC acccount and do conversion and p2p lending.
 
 Victoria is integrated with <a href="https://aws.amazon.com/lambda/">Lambda </a>, prior to be interacted using API Gateway. All API for the project are created by Node.js and <a href ="https://aws.amazon.com/dynamodb/"> </a> DynamoDB was selected to process data to-be-handled by a supposedly DLT network.
+<img src="https://user-images.githubusercontent.com/67068792/105360949-1ed0fe80-5c34-11eb-820c-b749b8d59a36.png" width="100" height="100">
 ![Screenshot_1606032883](https://user-images.githubusercontent.com/67068792/105360949-1ed0fe80-5c34-11eb-820c-b749b8d59a36.png)
 ![Screenshot_1606032920](https://user-images.githubusercontent.com/67068792/105360967-24c6df80-5c34-11eb-9776-e371775d8d4a.png)
 ![Screenshot_1606032938](https://user-images.githubusercontent.com/67068792/105360984-298b9380-5c34-11eb-8c93-98d9e2b4c5df.png)
