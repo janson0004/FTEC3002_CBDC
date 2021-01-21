@@ -13,4 +13,4 @@ To improvise the evolution of currency, from coin to note, and now to digital cu
 </ul>
 
 ## App System Architecture
-
+![螢幕截圖 2021-01-21 下午9 12 04](https://user-images.githubusercontent.com/67068792/105358285-eed42c00-5c30-11eb-835a-bada0f67ce98.png)
