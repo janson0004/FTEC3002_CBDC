@@ -21,6 +21,12 @@ To improvise the evolution of currency, from coin to note, and now to digital cu
     <li> Peer-to-peer payment and account information checking
 </ul>
 
+## UI/UX Design
+Since our team is short in UIUX designing, we conducted preliminary research on UIUX design considerations and justifications, also referenced to multiple sources for inspirations. We were also puzzled by the padding formatting and alignment in Flutter, since it was designed to cater cross-platform development in different aspect ratio and resolution dimension, we also studied use cases online to troubleshoot inconsistency of interactive elements.
+
+## Authentication
+As time was a limiting constraint, we did not develop a secure authentication method and it is not our main focus of the project. Therefore, we choose Firebase by Google as the authentication and registration method for our mobile app, which can securely save user data in the cloud and provide the same personalized experience across all of the user's devices. It supports authentication using passwords, and popular federated identity providers like Google, Apple, Microsoft, and more. Fingerprint authentication is also provided, which highly enhances our mobile app’s security.
+
 ## App System Architecture
 ![螢幕截圖 2021-01-21 下午9 12 04](https://user-images.githubusercontent.com/67068792/105358285-eed42c00-5c30-11eb-835a-bada0f67ce98.png)
 <p>Fig 1.2, User Journey Map</p>
