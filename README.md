@@ -6,9 +6,8 @@ This project was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEi
 
 Victoria is integrated with <a href="https://aws.amazon.com/lambda/">Lambda </a>, prior to be interacted using API Gateway. All API for the project are created by Node.js and <a href ="https://aws.amazon.com/dynamodb/"> </a> DynamoDB was selected to process data to-be-handled by a supposedly DLT network.
 ![螢幕截圖 2021-01-21 下午10 11 50](https://user-images.githubusercontent.com/67068792/105362299-b2ef9580-5c35-11eb-8d63-5506ff9744c2.png)
-![Screenshot_1606032883](https://user-images.githubusercontent.com/67068792/105360949-1ed0fe80-5c34-11eb-820c-b749b8d59a36.png)
-![Screenshot_1606032920](https://user-images.githubusercontent.com/67068792/105360967-24c6df80-5c34-11eb-9776-e371775d8d4a.png)
-![Screenshot_1606032938](https://user-images.githubusercontent.com/67068792/105360984-298b9380-5c34-11eb-8c93-98d9e2b4c5df.png)
+![螢幕截圖 2021-01-21 下午10 16 43](https://user-images.githubusercontent.com/67068792/105362927-707a8880-5c36-11eb-945c-9ddbcdf6d929.png)
+![螢幕截圖 2021-01-21 下午10 18 18](https://user-images.githubusercontent.com/67068792/105363048-96079200-5c36-11eb-931c-d849580f3ca5.png)
 
 
 ## How we get inspired
