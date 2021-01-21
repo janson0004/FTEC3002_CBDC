@@ -28,7 +28,7 @@ Since our team is short in UIUX designing, we conducted preliminary research on 
 AWS Lambda is the easiest tool on to implement Node.JS based HTTP API. At this experimentation stage, HTTP and RESTful APIs do not have noticeable difference. Having considered HTTP is easier to be tested, especially with GET method on web browser, we have decided to pilot on HTTP API. Each Node.JS function would handle different HTTP request. In all circumstances, response in JSON format would be returned for easier processing.
 Here is an example of getting user's account balance from DynamoDB.
 
-```
+```js
 try {
     const data = await documentClient.get(params).promise();
     responseBody = JSON.stringify(data.Item);
