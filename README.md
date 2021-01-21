@@ -1,9 +1,13 @@
 # Victoria
 
-Victoria, an mobile application which mimick central bank digital currency, which allows conversion between HKD and CBDC, peer-to-peer payment and account information checking.
+This project aimed at developing an mobile application that mimicking Central Bank Digital Currency, we would like to study the feasibility and technical design of CBDC if it were to be implemented in Hong Kong. Therefore, we create an Minimal Viable Product (MVP) mimicking CBDC wallet.
+
+This project was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEiwA6Cbm_7PgB0T5hkRn1noadXlxn3OH5lmWib2qB6nnorXO_bZXZ2KDk2zEvRoCZ1oQAvD_BwE&gclsrc=aw.ds">Flutter</a>, which is an open-source UI software development kit. Our idea is to provide a electronic wallet for users to access their CBDC acccount and do conversion and p2p lending.
+
+Victoria is integrated with <a href="https://aws.amazon.com/lambda/">Lambda </a>, prior to be interacted using API Gateway. All API for the project are created by Node.js and <a href ="https://aws.amazon.com/dynamodb/"> </a> DynamoDB was selected to process data to-be-handled by a supposedly DLT network.
 
 ## How we get inspired
-To improvise the evolution of currency, from coin to note, and now to digital currency, we are proposing for the HKMA to adopt CBDC implementation to promote cashless society. As compared to Project Inthathon-LionRock with regards to increase Hong Kong’s financial stability, we are putting strong emphasis on cash to CBDC migration. Therefore, we create an Minimal Viable Product (MVP) mimicking CBDC wallet, that was built on <a href="https://flutter.dev/?gclid=CjwKCAiA6aSABhApEiwA6Cbm_7PgB0T5hkRn1noadXlxn3OH5lmWib2qB6nnorXO_bZXZ2KDk2zEvRoCZ1oQAvD_BwE&gclsrc=aw.ds">Flutter</a>. 
+To improvise the evolution of currency, from coin to note, and now to digital currency, we are proposing for the HKMA to adopt CBDC implementation to promote cashless society. As compared to Project Inthathon-LionRock with regards to increase Hong Kong’s financial stability, we are putting strong emphasis on cash to CBDC migration. 
 
 ## Features
 <ul>
