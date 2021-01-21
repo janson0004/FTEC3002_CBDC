@@ -9,7 +9,7 @@ Victoria is integrated with <a href="https://aws.amazon.com/lambda/">Lambda </a>
 ![螢幕截圖 2021-01-21 下午10 11 50](https://user-images.githubusercontent.com/67068792/105362299-b2ef9580-5c35-11eb-8d63-5506ff9744c2.png)
 ![螢幕截圖 2021-01-21 下午10 16 43](https://user-images.githubusercontent.com/67068792/105362927-707a8880-5c36-11eb-945c-9ddbcdf6d929.png)
 ![螢幕截圖 2021-01-21 下午10 18 18](https://user-images.githubusercontent.com/67068792/105363048-96079200-5c36-11eb-931c-d849580f3ca5.png)
-
+<p> Fig 1.1, Screenshots of Victoria </p>
 
 ## How we get inspired
 To improvise the evolution of currency, from coin to note, and now to digital currency, we are proposing for the HKMA to adopt CBDC implementation to promote cashless society. As compared to Project Inthathon-LionRock with regards to increase Hong Kong’s financial stability, we are putting strong emphasis on cash to CBDC migration. 
