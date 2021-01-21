@@ -24,3 +24,4 @@ To improvise the evolution of currency, from coin to note, and now to digital cu
 ## App System Architecture
 ![螢幕截圖 2021-01-21 下午9 12 04](https://user-images.githubusercontent.com/67068792/105358285-eed42c00-5c30-11eb-835a-bada0f67ce98.png)
 <p>Fig 1.2, User Journey Map</p>
+Conversion will happen based on user request, or when P2P transactions have insufficient fund left in the account so that the interface will prompt user to the conversion page. Either of which, would forward user to account landing page once the action is complete. Conversion is only allowed when user has bind the CBDC wallet with bank accounts. Account information such as balance, recent transactions, can also be viewed.
