@@ -1,8 +1,15 @@
-# cbdc_app
+# Victoria
 
-A new Flutter application.
+Victoria, an mobile application which simulate central bank digital currency, which allows conversion between HKD and CBDC, peer-to-peer payment and account information checking.
 
-## Getting Started
+##
+
+## Features
+<ul>
+    <li> Account information Checking
+    <li> Conversion between HKD and CBDC
+    <li> Peer-to-peer payment and account information checking
+</ul>
 
 This project is a starting point for a Flutter application.
 
